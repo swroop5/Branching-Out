@@ -1,7 +1,10 @@
 import json
 
 def filter_users_by_name(name):
-    with open("users.json", "r") as file:
+    """
+    Filters the users by using the name parameter
+    """
+    with open("users.json", "r", encoding='utf-8') as file:
         users = json.load(file)
     
     filtered_users = [user for user in users if user["name"].lower() == name.lower()]
@@ -10,7 +13,10 @@ def filter_users_by_name(name):
         print(user)
 
 def filter_users_by_age(age):
-    with open("users.json", "r") as file:
+    """
+    Filters the users by using the age parameter
+    """
+    with open("users.json", "r", encoding='utf-8') as file:
         users = json.load(file)
     
     filtered_users = [user for user in users if int(user["age"]) == age]
@@ -19,7 +25,10 @@ def filter_users_by_age(age):
         print(user)
 
 def filter_users_by_email(email):
-    with open("users.json", "r") as file:
+    """
+    Filters the users by using the email parameter
+    """
+    with open("users.json", "r", encoding='utf-8') as file:
         users = json.load(file)
     
     filtered_users = [user for user in users if user["email"].lower() == email.lower()]
@@ -28,6 +37,7 @@ def filter_users_by_email(email):
         print(user)
 
 if __name__ == "__main__":
+    """ The main function that calls the filter_by functions """
     filter_option = input("What would you like to filter by? (Currently, only 'name' and 'age' and 'email' are supported): ").strip().lower()
     
     if filter_option == "name":
